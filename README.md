@@ -47,12 +47,12 @@ Examples
 
 ... current "hardcodeds" ;-}
 
-location /topsecret {
-  auth_gss on;
-  auth_gss_realm LOCALDOMAIN;
-  auth_gss_keytab /etc/krb5.keytab;
-  auth_gss_service_name HTTP;
-}
+    location /topsecret {
+      auth_gss on;
+      auth_gss_realm LOCALDOMAIN;
+      auth_gss_keytab /etc/krb5.keytab;
+      auth_gss_service_name HTTP;
+    }
 
 Additional steps...
 -------------------

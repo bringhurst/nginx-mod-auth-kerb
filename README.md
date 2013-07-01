@@ -2,6 +2,10 @@
 This is an [nginx](http://nginx.org/) module to enable the use of SPNEGO,
 GSSAPI, and Kerberos for HTTP SSO authentication.
 
+*Warning*: This code probably has a ton of bugs. Personally, I suggest that you
+don't use it in production without a bit of auditing. This repository was
+created because the original download site disappeared.
+
 ## Compilation
 First, you need to compile the spnegohelp dynamic library. 'make' in that
 subdirectory should do it, then place it by hand somewhere where linker

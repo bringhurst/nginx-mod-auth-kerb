@@ -1,29 +1,22 @@
-Nginx module to use SPNEGO+GSSAPI+Kerberos for http SSO authentication
-======================================================================
+# nginx-mod-auth-kerb
+This is an [nginx](http://nginx.org/) module to enable the use of SPNEGO,
+GSSAPI, and Kerberos for HTTP SSO authentication.
 
-Whatsizit
----------
-
-Code 97% stolen from mod_auth_gss_krb5 (http://modgssapache.sf.net);
-version 0.0.5.
-
-Compilation
------------
-
-First you need to compile the spnegohelp dynamic library. 'make' in that
+## Compilation
+First, you need to compile the spnegohelp dynamic library. 'make' in that
 subdirectory should do it, then place it by hand somewhere where linker
 and loader can find it by default (probably /usr/lib or perhaps even
 /usr/local/lib depending on your setup).
 
 When compiling from source build as usual adding the -add-module option:
 
+````
   ./configure --add-module=$PATH_TO_MODULE
+````
 
 inside top Nginx source directory.
 
-Configuration
--------------
-
+## Configuration
 The module has following directives:
 
 - auth_gss: "on"/"off", for ease of unsecuring while leaving other
@@ -39,12 +32,11 @@ The module has following directives:
   credentials. (TOFIX: HTTP but should be a list in case of some other
   browsers wanting perhaps khttp or http)
 
-TOFIX: for now they are all merely location specific. i.e. no way to
+FIXME: for now they are all merely location specific. i.e. no way to
 specify main or per server defaults, except for ...
 
-Examples
---------
-
+## Examples
+````
 ... current "hardcodeds" ;-}
 
     location /topsecret {
@@ -53,10 +45,9 @@ Examples
       auth_gss_keytab /etc/krb5.keytab;
       auth_gss_service_name HTTP;
     }
+````
 
-Additional steps...
--------------------
+## Credit and License
+This code is derived from the [Apache Kerberos/SPNEGO module](http://modgssapache.sf.net).
 
-pray for no segfaults...
-
-TOFIX: perhaps add instructions on how to create the service keytab...
+Please see the LICENSE.md file for more information.

@@ -34,7 +34,10 @@ The module has following directives:
 
 - auth_gss_service_name: what service name to use when acquiring
   credentials. (TOFIX: HTTP but should be a list in case of some other
-  browsers wanting perhaps khttp or http)
+  browsers wanting perhaps khttp or http),
+
+- auth_gss_format_full: "on"/"off", default "off", when "on" realm name will not
+  be stripped from $remote_user variable
 
 FIXME: for now they are all merely location specific. i.e. no way to
 specify main or per server defaults, except for ...
